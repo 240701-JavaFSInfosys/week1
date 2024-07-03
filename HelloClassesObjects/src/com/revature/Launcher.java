@@ -7,6 +7,7 @@ public class Launcher {
 
     public static void main(String[] args) {
 
+
         //Instantiate an Animal object with the no-args constructor
         //This will give us a generic Animal with generic values
         Animal a = new Animal();

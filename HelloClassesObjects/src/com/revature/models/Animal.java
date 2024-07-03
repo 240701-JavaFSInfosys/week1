@@ -21,7 +21,7 @@ public class Animal extends Object{
     public String makeNoise(){
         return species + " says " + sound;
     }
-    
+
     /* Method Disambiguation
 
     The methods below are both public, so they're visible to everything in the application
