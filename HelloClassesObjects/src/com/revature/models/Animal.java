@@ -2,7 +2,7 @@ package com.revature.models;
 
 //This is a Class meant to MODEL an Animal - think of it as a blueprint for all Animal objects
 //This Class defines all the attributes (variables) and behaviors (methods) of a generic Animal
-public class Animal {
+public class Animal extends Object{
 
     //These are 4 Animal variables - data that describe the Animal
 
@@ -21,7 +21,7 @@ public class Animal {
     public String makeNoise(){
         return species + " says " + sound;
     }
-
+    
     /* Method Disambiguation
 
     The methods below are both public, so they're visible to everything in the application
@@ -40,7 +40,11 @@ public class Animal {
     /* When we instantiate (create) an object, we use a constructor to give it initial values
        Constructors share the name of the Class, and have no return type
 
-        TODO: talk about method overloading and method overriding
+       These constructors are example of METHOD OVERLOADING
+       Overloaded methods have the SAME NAMES but DIFFERENT PARAMETERS (different number OR datatype, or both)
+
+       This is another of POLYMORPHISM - one of the 4 Pillars of OOP
+       "same name, different forms"
      */
 
     //no-args constructor. It takes NO ARGUMENTS. Typically used to give default values to an object
