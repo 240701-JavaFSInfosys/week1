@@ -1,8 +1,15 @@
 package com.revature;
 
+import com.revature.exceptions.NotACookieException;
+import com.revature.models.CookieEatingMonster;
+import com.revature.models.Food;
+
 public class Launcher {
 
-    public static void main(String[] args) {
+    //main will try to throw this Exception when encountered... but there's nowhere to throw it
+    //-so your code will just crash! There should always be a try/catch at the end of a throws chain
+    //it's common for a method to throw an Exception, but there should always be a try/catch somewhere
+    public static void main(String[] args) throws NotACookieException {
 
         System.out.println("=======(Throwing some Runtime Exceptions, AKA Unchecked Exceptions)");
 
@@ -38,10 +45,34 @@ public class Launcher {
             e.printStackTrace(); //this lets us print more details about what exactly went wrong
         } catch(Exception e){
             System.out.println("I could have caught any kind of Exception... But I wasn't needed");
+            e.printStackTrace();
         } finally{
             System.out.println("Finally block running... I will always run at the end of a try/catch no matter what");
         }
 
-    }
+        System.out.println("==============(Using our Custom Checked Exception)");
 
-}
+        //instantiate a CookieEatingMonster and some Food objects as well
+        CookieEatingMonster monster = new CookieEatingMonster();
+
+        Food chocoChip = new Food("Chocolate Chip Cookie", true);
+        Food broccoli = new Food("Broccoli", false);
+
+        monster.eatCookieWithTryCatch(chocoChip); //We gave it a cookie, so no problem
+
+        //now, let's give the monster a non-cookie
+        monster.eatCookieWithTryCatch(broccoli);
+        //remember, our code didn't actually crash here,
+        //a stack trace is printed because of e.printStackTrace in our eatCookie method.
+
+        System.out.println("Hi the App didn't crash, we just printed a stack trace!");
+
+
+        //now, we're going to use the eatCookieWithThrows method---/
+
+        monster.eatCookieWithThrows(chocoChip); //We gave it a cookie, so no problem
+        monster.eatCookieWithThrows(broccoli);
+
+    } //end of main
+
+} //end of Class declaration
