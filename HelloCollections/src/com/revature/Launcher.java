@@ -3,6 +3,7 @@ package com.revature;
 import com.revature.models.Digimon;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -96,7 +97,25 @@ public class Launcher {
         //Let's use .peek() again to prove the first element is gone
         System.out.println("The next digimon in line is: " + digimonQueue.peek());
 
-        System.out.println("======================(Maps)");
+        System.out.println("======================(Maps - NOT technically Collections)");
+
+        //Instantiate a HashMap to store Digimon owners - we'll Integers for keys, and String for values
+        HashMap<Integer, String> owners = new HashMap();
+
+
+
+        //we can use put() to specify key value pairs
+        owners.put(1, "Taichi");
+        owners.put(2, "Ash");
+        owners.put(2, "Yugi"); //this will overwrite the previous value for key 2
+
+        System.out.println(owners);
+
+        /* Why are we using Integer instead of int?
+
+           Integer is a WRAPPER CLASS for int. Maps (and Collections) only take objects. No primitives
+           So we use Integer instead of int to store our keys in a Map
+           Wrapper Classes are CLASS-BASED REPRESENTATIONS of primitives */
 
     }
 
